@@ -70,10 +70,7 @@ public class ViewUtils {
                     field.set(object, view.findViewById(viewId));
                     viewCount++;
                 }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (IllegalArgumentException e) {
-                // Log.e(TAG, "Field name : " + field.getName());
+            } catch (IllegalAccessException | IllegalArgumentException e) {
                 e.printStackTrace();
             }
         }
@@ -123,4 +120,5 @@ public class ViewUtils {
         }
         return view;
     }
+
 }
