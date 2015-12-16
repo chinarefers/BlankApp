@@ -30,4 +30,5 @@ public class BaseFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ViewUtils.inject(this, view);
     }
+
 }
