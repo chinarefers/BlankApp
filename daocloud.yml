@@ -1,12 +1,7 @@
 image: daocloud/ci-java:oraclejdk8
 
-services:
-    - mongodb
-    - mysql
-    - redis
-
 env:
-    - ANDROID_HOME = "$HOME/android-sdk-linux"
+    - ANDROID_HOME = "android-sdk-linux"
     - PATH = "$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 install:
     - sudo apt-get update
@@ -14,6 +9,7 @@ install:
     - sudo apt-get -y install wget
     - wget http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz
     - tar xvzf android-sdk_r24.3.4-linux.tgz
+    - echo $ANDROID_HOME
     - android list sdk --all
 
 before_script:
