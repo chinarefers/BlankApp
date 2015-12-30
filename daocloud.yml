@@ -1,7 +1,5 @@
 image: daocloud/ci-java:oraclejdk8
 
-services:
-
 env:
     - ANDROID_HOME = "/android-sdk-linux"
     - PATH = "$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
@@ -19,8 +17,6 @@ install:
     - echo "y" | android update sdk --no-ui --force --filter extra-android-m2repository
     - echo "y" | android update sdk --no-ui --force --filter extra-google-m2repository
     - echo "y" | android update sdk --no-ui --force --filter extra-android-support
-
-before_script:
 
 script:
     - ./gradlew build --info
