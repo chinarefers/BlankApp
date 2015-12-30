@@ -11,7 +11,7 @@ install:
     - tar xvzf android-sdk_r24.3.4-linux.tgz
     - echo $ANDROID_HOME
     - android list sdk --all
-    - android update sdk --no-ui --all
+    - echo "yes" | android update sdk --no-ui --all -y
 
 before_script:
     - echo $ANDROID_HOME
