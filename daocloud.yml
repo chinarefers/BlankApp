@@ -1,7 +1,7 @@
 image: daocloud/ci-java:oraclejdk8
 
 env:
-    - ANDROID_HOME = "/android-sdk-linux"
+    - ANDROID_HOME = "$HOME/android-sdk-linux"
     - PATH = "$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 install:
     - sudo dpkg --add-architecture i386
@@ -10,7 +10,7 @@ install:
     - sudo apt-get -y install wget
     - sudo apt-get -y install libncurses5:i386 libstdc++6:i386 zlib1g:i386
     - wget http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz
-    - tar xvzf android-sdk_r24.3.4-linux.tgz /
+    - tar xvzf android-sdk_r24.3.4-linux.tgz $HOME
     - android list sdk --all
     - echo "y" | android update sdk --no-ui --force --filter platform-tools,tools
     - echo "y" | android update sdk --no-ui --force --filter android-23,build-tools-23.0.2,sysimg-23
