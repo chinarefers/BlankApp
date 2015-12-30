@@ -6,20 +6,23 @@ services:
     - redis
 
 env:
-    - MYENV = "hello"
-
+    - ANDROID_HOME = "$HOME/android-sdk-linux"
+    - PATH = "$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 install:
     - sudo apt-get update
     - sudo apt-get -y install tree
-    - sudo apt-get -y install
+    - sudo apt-get -y install wget
+    - wget http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz
+    - tar xvzf android-sdk_r24.3.4-linux.tgz
+    - android list sdk --all
 
 before_script:
-    - echo $MYENV
+    - echo $ANDROID_HOME
     - echo "This is an before_script segment"
     - echo "Here, we usually run scripts to prepare our test"
 
 script:
-    - echo $MYENV
+    - echo $ANDROID_HOME
     - echo "This is an script segment"
     - echo "Run test cases here"
     - echo ""
