@@ -2,4 +2,8 @@
 <resources>
     <item name="nk__list" type="id" />
     <item name="nk__grid" type="id" />
+
+    <item name="nk__text" type="id" />
+    <item name="nk__detail_text" type="id" />
+    <item name="nk__image" type="id" />
 </resources>

@@ -25,23 +25,24 @@ import org.blankapp.content.AsyncLoader;
 
 import java.util.Random;
 
-public abstract class LoaderFragment<D> extends BaseFragment implements LoaderManager.LoaderCallbacks<D>, AsyncLoader.LoaderCallback<D> {
-    private final String TAG = LoaderFragment.class.getSimpleName();
+public abstract class LoaderActivity<D> extends BaseActivity implements LoaderManager.LoaderCallbacks<D>, AsyncLoader.LoaderCallback<D> {
+    private final String TAG = LoaderActivity.class.getSimpleName();
 
-    private final int LOADER_ID = new Random().nextInt();
+    protected final int LOADER_ID = new Random().nextInt();
 
-    private LoaderManager mLoaderManager;
+    protected LoaderManager mLoaderManager;
 
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         this.destroyLoader();
     }
 
     protected void ensureLoaderManager() {
         if (mLoaderManager == null) {
-            mLoaderManager = getActivity().getSupportLoaderManager();
+            mLoaderManager = getSupportLoaderManager();
         }
+        LoaderManager.enableDebugLogging(true);
     }
 
     protected void initLoader() {
@@ -83,7 +84,7 @@ public abstract class LoaderFragment<D> extends BaseFragment implements LoaderMa
     @Override
     public Loader<D> onCreateLoader(int id, Bundle args) {
         Log.d(TAG, ">>>onCreateLoader");
-        return new AsyncLoader<D>(getActivity(), this);
+        return new AsyncLoader<D>(this, this);
     }
 
     @Deprecated

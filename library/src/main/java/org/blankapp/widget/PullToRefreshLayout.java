@@ -21,8 +21,19 @@ import android.widget.FrameLayout;
 
 public class PullToRefreshLayout extends FrameLayout {
 
+    private boolean mRefreshing = false;
+
     public PullToRefreshLayout(Context context) {
         super(context);
     }
 
+    public void beginRefreshing() {
+    }
+
+    public void endRefreshing() {
+    }
+
+    public boolean isRefreshing() {
+        return mRefreshing;
+    }
 }
