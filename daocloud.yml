@@ -1,15 +1,18 @@
 image: daocloud/ci-java:oraclejdk8
 
+services:
+
 env:
     - ANDROID_HOME = "android-sdk-linux"
     - PATH = "$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 install:
+    - sudo dpkg --add-architecture i386
     - sudo apt-get update
     - sudo apt-get -y install tree
     - sudo apt-get -y install wget
+    - sudo apt-get install libncurses5:i386 libstdc++6:i386 zlib1g:i386
     - wget http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz
     - tar xvzf android-sdk_r24.3.4-linux.tgz
-    - echo $ANDROID_HOME
     - android list sdk --all
     - echo "y" | android update sdk --no-ui --force --filter platform-tools,tools
     - echo "y" | android update sdk --no-ui --force --filter android-23,build-tools-23.0.2,sysimg-23
@@ -18,15 +21,6 @@ install:
     - echo "y" | android update sdk --no-ui --force --filter extra-android-support
 
 before_script:
-    - echo $ANDROID_HOME
-    - tree -L 2
-    - echo "This is an before_script segment"
-    - echo "Here, we usually run scripts to prepare our test"
 
 script:
-    - echo $ANDROID_HOME
-    - echo "This is an script segment"
-    - echo "Run test cases here"
-    - echo ""
-    - echo "Below shows how to use services, mongodb/mysql/redis are the service host name"
     - ./gradlew build --info
