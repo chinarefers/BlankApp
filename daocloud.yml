@@ -1,4 +1,4 @@
-image: daocloud/ci-java:oraclejdk8
+image: daocloud.io/lijy91/blankapp
 
 script:
     - ./gradlew build --info
