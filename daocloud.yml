@@ -1,4 +1,4 @@
-image: daocloud.io/lijy91/blankapp
+image: daocloud.io/lijy91/blankapp:master-c3793ac
 
 script:
     - ./gradlew build --info
