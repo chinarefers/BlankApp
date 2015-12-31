@@ -27,8 +27,4 @@ ENV PATH $PATH:$ANDROID_HOME/platform-tools
 ENV PATH $PATH:$ANDROID_HOME/build-tools/23.0.2
 
 RUN android list sdk --all
-RUN echo "y" | android update sdk --no-ui --force --filter platform-tools,tools
-RUN echo "y" | android update sdk --no-ui --force --filter android-23,build-tools-23.0.2,sysimg-23
-RUN echo "y" | android update sdk --no-ui --force --filter extra-android-m2repository
-RUN echo "y" | android update sdk --no-ui --force --filter extra-google-m2repository
-RUN echo "y" | android update sdk --no-ui --force --filter extra-android-support
+RUN echo "y" | android update sdk --no-ui --force --filter platform-tools,tools,android-23,build-tools-23.0.2,sysimg-23,extra-android-m2repository,extra-google-m2repository,extra-android-support
