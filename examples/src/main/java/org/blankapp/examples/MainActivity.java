@@ -50,11 +50,6 @@ public class MainActivity extends LoaderActivity<Object> {
                 appCompatDialog.show();
             }
         });
-
-        long num1 = 11;
-        long num2 = 12;
-        int percent = (int) (((float) num1 / (float) num2) * 100);
-        Log.i(TAG, percent + "%");
     }
 
     @Override
