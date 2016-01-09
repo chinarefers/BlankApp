@@ -1,6 +1,21 @@
 # BlankApp
 
-文档编写中...
+## 如何使用
+
+1、只需将[mvn-repo](github.com/lijy91/mvn-repo/)地址添加到您的 build.gradle 文件：
+```
+repositories {
+    maven { url 'https://raw.githubusercontent.com/lijy91/mvn-repo/master/' }
+    jcenter()
+}
+```
+
+2、在要集成的项目中的 build.gradle 中添加依赖，如下：
+```
+dependencies {
+    compile 'org.blankapp:blankapp:0.0.1-alpha@aar'
+}
+```
 
 # License
 
