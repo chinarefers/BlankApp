@@ -1,9 +1,11 @@
 # BlankApp
 ---
 
+[![Build Status](https://api.travis-ci.org/lijy91/BlankApp.svg?branch=master)](https://travis-ci.org/lijy91/BlankApp)
+
 ## 如何使用
 
-1、只需将[mvn-repo](github.com/lijy91/mvn-repo/)地址添加到您的 build.gradle 文件：
+1、只需将 [mvn-repo](github.com/lijy91/mvn-repo/) 地址添加到您的 build.gradle 文件：
 ```
 repositories {
     maven { url 'https://raw.githubusercontent.com/lijy91/mvn-repo/master/' }
