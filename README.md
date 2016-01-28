@@ -1,4 +1,5 @@
 # BlankApp
+---
 
 ## 如何使用
 
@@ -19,7 +20,7 @@ dependencies {
 
 # License
 
-    Copyright (C) 2015 LiJianying
+    Copyright (C) 2015 JianyingLi <lijy91@foxmail.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
