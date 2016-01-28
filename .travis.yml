@@ -1,0 +1,13 @@
+# https://docs.travis-ci.com/user/languages/android
+language: android
+android:
+  components:
+    - build-tools-23.0.2
+    - android-23
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - extra-android-support
+
+script:
+    - ./gradlew library:build
+    - ./gradlew examples:assembleDebug

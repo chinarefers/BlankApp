@@ -1,4 +1,0 @@
-image: daocloud.io/lijy91/ci-android
-
-script:
-    - ./gradlew examples:assembleDebug --debug
