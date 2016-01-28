@@ -4,9 +4,12 @@ jdk: oraclejdk7
 
 android:
   components:
+    - tools
     - build-tools-23.0.2
     - android-23
-    - extra
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - extra-android-support
 
 script:
     - ./gradlew library:build
