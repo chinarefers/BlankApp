@@ -1,6 +1,8 @@
 # BlankApp
 ==============
 
+[![Join the chat at https://gitter.im/lijy91/BlankApp](https://badges.gitter.im/lijy91/BlankApp.svg)](https://gitter.im/lijy91/BlankApp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://api.travis-ci.org/lijy91/BlankApp.svg?branch=master)](https://travis-ci.org/lijy91/BlankApp)
 
 ## 如何使用
