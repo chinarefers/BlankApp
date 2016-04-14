@@ -1,5 +1,6 @@
 package org.blankapp.examples;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.CursorLoader;
 import android.support.v7.app.AlertDialog;
@@ -15,7 +16,7 @@ import org.blankapp.app.LoaderActivity;
 public class MainActivity extends LoaderActivity<Object> {
     private final String TAG = MainActivity.class.getSimpleName();
 
-    @ViewById(R.id.nk__list)
+    @ViewById(R.id.start)
     private Button start;
 
     private boolean needError = false;
@@ -25,6 +26,21 @@ public class MainActivity extends LoaderActivity<Object> {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.initLoader();
+
+        runOnUiThread(() -> Log.i("TAG", "test"));
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("TAG", "test");
+            }
+        });
+
+        findViewById(R.id.entry_list).setOnClickListener(v -> {
+            Intent intent = new Intent(this, SimpleListActivity.class);
+            startActivity(intent);
+        });
+
         findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

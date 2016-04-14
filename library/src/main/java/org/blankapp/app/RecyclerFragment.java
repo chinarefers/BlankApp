@@ -32,6 +32,13 @@ public abstract class RecyclerFragment<VH extends RecyclerView.ViewHolder, Item,
     protected PullToRefreshLayout mPullToRefreshLayout;
     protected RecyclerView mRecyclerView;
 
+    protected PullToRefreshLayout.OnRefreshListener mOnRefreshListener = new PullToRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            RecyclerFragment.this.onRefresh();
+        }
+    };
+
     protected RecyclerView.Adapter<VH> mAdapter = new RecyclerView.Adapter<VH>() {
         @Override
         public VH onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -65,6 +72,9 @@ public abstract class RecyclerFragment<VH extends RecyclerView.ViewHolder, Item,
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mPullToRefreshLayout = (PullToRefreshLayout) view.findViewById(R.id.pull_to_refresh);
+        if (mPullToRefreshLayout != null) {
+            mPullToRefreshLayout.setOnRefreshListener(mOnRefreshListener);
+        }
         mRecyclerView = (RecyclerView) view.findViewById(R.id.list);
         mRecyclerView.setAdapter(mAdapter);
     }
@@ -73,6 +83,13 @@ public abstract class RecyclerFragment<VH extends RecyclerView.ViewHolder, Item,
 
     protected PullToRefreshLayout getPullToRefreshLayout() {
         return mPullToRefreshLayout;
+    }
+
+    public abstract void onRefresh();
+
+    public void onRefreshComplete() {
+        if (mPullToRefreshLayout == null) return;
+        mPullToRefreshLayout.setRefreshing(false);
     }
 
     // RecyclerView

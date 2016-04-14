@@ -16,8 +16,23 @@
 
 package org.blankapp.app;
 
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
-public abstract class ListFragment<VH extends RecyclerView.ViewHolder, Item, Result> extends RecyclerActivity<VH, Item, Result> {
+import org.blankapp.R;
 
+public abstract class ListFragment<VH extends RecyclerView.ViewHolder, Item, Result> extends RecyclerFragment<VH, Item, Result> {
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setLayoutManager(new LinearLayoutManager(getActivity()));
+    }
+
+    @Override
+    protected int getRecyclerViewId() {
+        return R.id.list;
+    }
 }
