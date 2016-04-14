@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="nk__list" type="id" />
-    <item name="nk__grid" type="id" />
-
-    <item name="nk__text" type="id" />
-    <item name="nk__detail_text" type="id" />
-    <item name="nk__image" type="id" />
+    <item name="pull_to_refresh" type="id" />
+    <item name="list" type="id" />
+    <item name="grid" type="id" />
+    <item name="staggered_grid" type="id" />
 </resources>

@@ -14,8 +14,17 @@
  * limitations under the License.
  */
 
-package org.blankapp.util;
+package org.blankapp.app;
 
-public class Log {
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
+public abstract class GridActivity<VH extends RecyclerView.ViewHolder, Item, Result> extends RecyclerActivity<VH, Item, Result> {
+
+    @Override
+    public void onContentChanged() {
+        super.onContentChanged();
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+    }
 }

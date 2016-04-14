@@ -18,9 +18,11 @@ package org.blankapp;
 
 import android.content.Context;
 
+import org.blankapp.util.Config;
+
 public class BlankApp {
 
     public static void initialize(Context context) {
-        // BLANK
+        Config.initialize(context);
     }
 }

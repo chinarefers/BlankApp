@@ -16,21 +16,8 @@
 
 package org.blankapp.app;
 
-import java.util.List;
+import android.support.v7.widget.RecyclerView;
 
-public class ListFragment<Item> extends BaseFragment {
+public abstract class ListFragment<VH extends RecyclerView.ViewHolder, Item, Result> extends RecyclerActivity<VH, Item, Result> {
 
-    private List<Item> mItemsSource;
-
-    public List<Item> getItemsSource() {
-        return mItemsSource;
-    }
-
-    public void setItemsSource(List<Item> mItemsSource) {
-        this.mItemsSource = mItemsSource;
-    }
-
-    public void addItem(Item item) {
-        this.mItemsSource.add(item);
-    }
 }

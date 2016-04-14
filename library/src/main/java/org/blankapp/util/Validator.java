@@ -16,6 +16,20 @@
 
 package org.blankapp.util;
 
-public class Log {
+public class Validator {
 
+    public static Validator make() {
+        return null;
+    }
+
+    public Validator() {
+    }
+
+    public boolean fails() {
+        return true;
+    }
+
+    public void errors() {
+
+    }
 }

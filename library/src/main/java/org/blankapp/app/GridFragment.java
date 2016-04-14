@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package org.blankapp.util;
+package org.blankapp.app;
 
-public class Log {
+import android.support.v7.widget.RecyclerView;
 
+public abstract class GridFragment<VH extends RecyclerView.ViewHolder, Item, Result> extends RecyclerFragment<VH, Item, Result> {
 }

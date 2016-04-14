@@ -17,23 +17,12 @@
 package org.blankapp.widget;
 
 import android.content.Context;
-import android.widget.FrameLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.AttributeSet;
 
-public class PullToRefreshLayout extends FrameLayout {
+public class PullToRefreshLayout extends SwipeRefreshLayout {
 
-    private boolean mRefreshing = false;
-
-    public PullToRefreshLayout(Context context) {
-        super(context);
-    }
-
-    public void beginRefreshing() {
-    }
-
-    public void endRefreshing() {
-    }
-
-    public boolean isRefreshing() {
-        return mRefreshing;
+    public PullToRefreshLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
     }
 }

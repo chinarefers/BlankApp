@@ -14,8 +14,23 @@
  * limitations under the License.
  */
 
-package org.blankapp.util;
+package org.blankapp.app;
 
-public class Log {
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
+import org.blankapp.R;
+
+public abstract class ListActivity<VH extends RecyclerView.ViewHolder, Item, Result> extends RecyclerActivity<VH, Item, Result> {
+
+    @Override
+    public void onContentChanged() {
+        super.onContentChanged();
+        setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    protected int getRecyclerViewId() {
+        return R.id.list;
+    }
 }

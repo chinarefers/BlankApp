@@ -18,7 +18,6 @@ package org.blankapp.content;
 
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.CursorLoader;
 import android.util.Log;
 
 public class AsyncLoader<D> extends AsyncTaskLoader<D> {
