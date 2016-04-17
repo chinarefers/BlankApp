@@ -2,9 +2,11 @@ package org.blankapp.examples;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.blankapp.app.ListActivity;
 
@@ -41,9 +43,15 @@ public class SimpleListActivity extends ListActivity<SimpleListViewHolder, User,
 
     @Override
     public void onBindViewHolder(SimpleListViewHolder holder, int position) {
+        super.onBindViewHolder(holder, position);
         User user = getItemsSource().get(position);
         holder.mName.setText(user.getName());
         holder.mUsername.setText(user.getUsername());
+    }
+
+    @Override
+    protected void onListItemClick(RecyclerView rv, View v, int position, long id) {
+        Toast.makeText(this, "Item:" + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override

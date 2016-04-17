@@ -18,6 +18,7 @@ package org.blankapp.app;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import org.blankapp.R;
 
@@ -32,5 +33,15 @@ public abstract class ListActivity<VH extends RecyclerView.ViewHolder, Item, Res
     @Override
     protected int getRecyclerViewId() {
         return R.id.list;
+    }
+
+    @Override
+    public void onBindViewHolder(VH holder, int position) {
+        holder.itemView.setOnClickListener(v -> {
+            onListItemClick(getRecyclerView(), holder.itemView, position, getItemId(position));
+        });
+    }
+
+    protected void onListItemClick(RecyclerView rv, View v, int position, long id) {
     }
 }

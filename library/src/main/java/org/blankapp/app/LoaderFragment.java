@@ -40,7 +40,7 @@ public abstract class LoaderFragment<D> extends BaseFragment implements LoaderMa
 
     protected void ensureLoaderManager() {
         if (mLoaderManager == null) {
-            mLoaderManager = getActivity().getSupportLoaderManager();
+            mLoaderManager = getLoaderManager();
         }
     }
 

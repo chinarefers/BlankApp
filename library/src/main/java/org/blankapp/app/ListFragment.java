@@ -35,4 +35,14 @@ public abstract class ListFragment<VH extends RecyclerView.ViewHolder, Item, Res
     protected int getRecyclerViewId() {
         return R.id.list;
     }
+
+    @Override
+    public void onBindViewHolder(VH holder, int position) {
+        holder.itemView.setOnClickListener(v -> {
+            onListItemClick(getRecyclerView(), holder.itemView, position, getItemId(position));
+        });
+    }
+
+    protected void onListItemClick(RecyclerView rv, View v, int position, long id) {
+    }
 }

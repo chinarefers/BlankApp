@@ -75,6 +75,8 @@ public class AsyncLoader<D> extends AsyncTaskLoader<D> {
                 // If the Loader is currently started, we can immediately deliver its results.
                 mLoaderCallback.onLoadComplete(mData);
             }
+        } else {
+            mLoaderCallback.onLoadError(mError);
         }
     }
 
