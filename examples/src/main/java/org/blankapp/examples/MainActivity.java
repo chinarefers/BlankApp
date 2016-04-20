@@ -40,6 +40,10 @@ public class MainActivity extends LoaderActivity<Object> {
             Intent intent = new Intent(this, SimpleListActivity.class);
             startActivity(intent);
         });
+        findViewById(R.id.entry_grid).setOnClickListener(v -> {
+            Intent intent = new Intent(this, SimpleGridActivity.class);
+            startActivity(intent);
+        });
 
         findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
             @Override

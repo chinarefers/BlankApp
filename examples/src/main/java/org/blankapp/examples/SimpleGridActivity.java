@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import org.blankapp.app.ListActivity;
+import org.blankapp.app.GridActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +16,19 @@ import java.util.List;
 /**
  * Created by Lijy91 on 16/4/13.
  */
-public class SimpleListActivity extends ListActivity<SimpleListViewHolder, User, List<User>> {
+public class SimpleGridActivity extends GridActivity<SimpleListViewHolder, User, List<User>> {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple_list);
+        setContentView(R.layout.activity_simple_grid);
         this.initLoader();
+    }
+
+    @Override
+    protected int getSpanCount() {
+        return 3;
     }
 
     @Override
