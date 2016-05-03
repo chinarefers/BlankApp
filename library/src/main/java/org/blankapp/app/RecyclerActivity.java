@@ -61,7 +61,7 @@ public abstract class RecyclerActivity<VH extends RecyclerView.ViewHolder, Item,
 
         @Override
         public int getItemViewType(int position) {
-            return super.getItemViewType(position);
+            return RecyclerActivity.this.getItemViewType(position);
         }
     };
 
@@ -121,6 +121,10 @@ public abstract class RecyclerActivity<VH extends RecyclerView.ViewHolder, Item,
     }
 
     public long getItemId(int position) {
+        return 0;
+    }
+
+    public int getItemViewType(int position) {
         return 0;
     }
 
