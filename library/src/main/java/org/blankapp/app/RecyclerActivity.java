@@ -75,7 +75,7 @@ public abstract class RecyclerActivity<VH extends RecyclerView.ViewHolder, Item,
         if (mPullToRefreshLayout != null) {
             mPullToRefreshLayout.setOnRefreshListener(mOnRefreshListener);
         }
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.list);
+        mRecyclerView = (RecyclerView) view.findViewById(this.getRecyclerViewId());
         mRecyclerView.setAdapter(mAdapter);
     }
 
