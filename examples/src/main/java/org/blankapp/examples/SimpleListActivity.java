@@ -30,9 +30,9 @@ public class SimpleListActivity extends ListActivity<SimpleListViewHolder, User,
     public void onRefresh() {
         getItemsSource().clear();
         getAdapter().notifyDataSetChanged();
-        new Handler().postDelayed(() -> {
-            this.forceLoad();
-        }, 1000);
+//        new Handler().postDelayed(() -> {
+//            this.forceLoad();
+//        }, 1000);
     }
 
     @Override

@@ -14,22 +14,7 @@
  * limitations under the License.
  */
 
-package org.blankapp.util;
+package org.blankapp;
 
-public class Validator {
-
-    public static Validator make() {
-        return null;
-    }
-
-    public Validator() {
-    }
-
-    public boolean fails() {
-        return true;
-    }
-
-    public void errors() {
-
-    }
+public class Cache {
 }

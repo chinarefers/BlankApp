@@ -27,49 +27,49 @@ public class MainActivity extends LoaderActivity<Object> {
         setContentView(R.layout.activity_main);
         this.initLoader();
 
-        runOnUiThread(() -> Log.i("TAG", "test"));
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Log.i("TAG", "test");
-            }
-        });
-
-        findViewById(R.id.entry_list).setOnClickListener(v -> {
-            Intent intent = new Intent(this, SimpleListActivity.class);
-            startActivity(intent);
-        });
-        findViewById(R.id.entry_grid).setOnClickListener(v -> {
-            Intent intent = new Intent(this, SimpleGridActivity.class);
-            startActivity(intent);
-        });
-
-        findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                needError = !needError;
-                Log.e(TAG, "needError:" + needError);
-//                mLoaderManager.getLoader(LOADER_ID).onContentChanged();
-                forceLoad();
-                new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("BlankApp")
-                        .setMessage("hello !")
-                        .setNegativeButton("Ok", null)
-                        .setPositiveButton("Cancel", null)
-                        .create()
-                        .show();
-            }
-        });
-        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatDialog appCompatDialog = new AppCompatDialog(MainActivity.this);
-                appCompatDialog.setTitle("你好");
-                appCompatDialog.setContentView(R.layout.test_dialog);
-                appCompatDialog.show();
-            }
-        });
+//        runOnUiThread(() -> Log.i("TAG", "test"));
+//
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Log.i("TAG", "test");
+//            }
+//        });
+//
+//        findViewById(R.id.entry_list).setOnClickListener(v -> {
+//            Intent intent = new Intent(this, SimpleListActivity.class);
+//            startActivity(intent);
+//        });
+//        findViewById(R.id.entry_grid).setOnClickListener(v -> {
+//            Intent intent = new Intent(this, SimpleGridActivity.class);
+//            startActivity(intent);
+//        });
+//
+//        findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                needError = !needError;
+//                Log.e(TAG, "needError:" + needError);
+////                mLoaderManager.getLoader(LOADER_ID).onContentChanged();
+//                forceLoad();
+//                new AlertDialog.Builder(MainActivity.this)
+//                        .setTitle("BlankApp")
+//                        .setMessage("hello !")
+//                        .setNegativeButton("Ok", null)
+//                        .setPositiveButton("Cancel", null)
+//                        .create()
+//                        .show();
+//            }
+//        });
+//        findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AppCompatDialog appCompatDialog = new AppCompatDialog(MainActivity.this);
+//                appCompatDialog.setTitle("你好");
+//                appCompatDialog.setContentView(R.layout.test_dialog);
+//                appCompatDialog.show();
+//            }
+//        });
     }
 
     @Override

@@ -18,7 +18,8 @@ package org.blankapp.content;
 
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
-import android.util.Log;
+
+import org.blankapp.util.Log;
 
 public class AsyncLoader<D> extends AsyncTaskLoader<D> {
     private final String TAG = AsyncLoader.class.getSimpleName();

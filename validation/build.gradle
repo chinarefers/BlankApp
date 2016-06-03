@@ -1,22 +1,18 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
     buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
-        applicationId "org.blankapp.examples"
         minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
         targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
         versionCode Integer.parseInt(VERSION_CODE)
         versionName VERSION_NAME
     }
     buildTypes {
-        debug {
-            minifyEnabled false
-        }
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -25,6 +21,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile project(':library')
+    compile 'com.android.support:appcompat-v7:23.4.0'
 }
+
+apply from: 'https://raw.githubusercontent.com/lijy91/gradle-mvn-push/master/gradle-mvn-push.gradle'

@@ -19,9 +19,9 @@ package org.blankapp.app;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.util.Log;
 
 import org.blankapp.content.AsyncLoader;
+import org.blankapp.util.Log;
 
 import java.util.Random;
 

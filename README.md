@@ -17,8 +17,15 @@ repositories {
 2、在要集成的模块 build.gradle 文件中添加依赖，如下：
 ```
 dependencies {
-    compile 'org.blankapp:blankapp:0.0.1-alpha@aar'
+    compile 'org.blankapp:blankapp:0.0.11-alpha@aar'
+    compile 'org.blankapp:validation:0.0.11-alpha@aar'
 }
+```
+
+## 编译
+
+```
+$ ./gradlew clean build uploadArchives 
 ```
 
 ## License

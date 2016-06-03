@@ -19,10 +19,19 @@ package org.blankapp;
 import android.content.Context;
 
 import org.blankapp.util.Config;
+import org.blankapp.util.Log;
 
 public class BlankApp {
 
     public static void initialize(Context context) {
         Config.initialize(context);
+    }
+
+    public static void dispose() {
+
+    }
+
+    public static void setLoggingEnabled(boolean enabled) {
+        Log.setEnabled(enabled);
     }
 }

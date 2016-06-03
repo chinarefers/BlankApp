@@ -24,12 +24,13 @@ import org.blankapp.annotation.ViewById;
 import java.lang.reflect.Field;
 
 public class ViewUtils {
-    private static final String TAG = ViewUtils.class.getSimpleName();
+    private static final String TAG = "ViewUtils";
 
     /**
      * 通过注解的方式初始化View
      *
      * @param activity
+     * @return
      */
     public static int inject(Activity activity) {
         return inject(activity, activity.getWindow().getDecorView());

@@ -14,7 +14,22 @@
  * limitations under the License.
  */
 
-package org.blankapp.util;
+package org.blankapp.validation;
 
-public class TextUtils {
+public class Validator {
+
+    public static Validator make() {
+        return null;
+    }
+
+    public Validator() {
+    }
+
+    public boolean fails() {
+        return true;
+    }
+
+    public void errors() {
+
+    }
 }
