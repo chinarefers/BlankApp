@@ -44,7 +44,11 @@ public class Validator {
         this.mRules = new LinkedHashSet<>();
     }
 
-    public void addRule(Rule rule) {
+    public void add(Rule rule) {
+        this.add(rule, null);
+    }
+
+    public void add(Rule rule, ValidationListener validationListener) {
         mRules.add(rule);
     }
 

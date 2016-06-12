@@ -18,6 +18,17 @@ package org.blankapp.validation.validators;
 
 public abstract class BaseValidator {
 
+    private int mMessageId;
+    private String mMessage;
+
+    public int getMessageId() {
+        return mMessageId;
+    }
+
+    public String getMessage() {
+        return mMessage;
+    }
+
     public abstract boolean isValid();
 
 }
