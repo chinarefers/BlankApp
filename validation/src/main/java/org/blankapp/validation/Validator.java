@@ -16,20 +16,62 @@
 
 package org.blankapp.validation;
 
+import android.content.Context;
+
+import org.blankapp.validation.helpers.DefaultHandler;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Validator {
 
-    public static Validator make() {
-        return null;
-    }
+    private Context mContext;
+    private Set<Rule> mRules;
+    private ErrorHandler mErrorHandler;
+    private ValidatorListener mValidatorListener;
 
     public Validator() {
+        this(null, null);
     }
 
-    public boolean fails() {
+    public Validator(Context context) {
+        this(context, null);
+    }
+
+    public Validator(Context context, ErrorHandler errorHandler) {
+        this.mContext = context;
+        this.mErrorHandler = errorHandler;
+        this.mRules = new LinkedHashSet<>();
+    }
+
+    public void addRule(Rule rule) {
+        mRules.add(rule);
+    }
+
+    public ErrorHandler getErrorHandler() {
+        if (mErrorHandler == null) {
+            mErrorHandler = new DefaultHandler();
+        }
+        return mErrorHandler;
+    }
+
+    public void setErrorHandler(ErrorHandler errorHandler) {
+        this.mErrorHandler = errorHandler;
+    }
+
+    public ValidatorListener getValidatorListener() {
+        return mValidatorListener;
+    }
+
+    public void setValidatorListener(ValidatorListener validatorListener) {
+        this.mValidatorListener = validatorListener;
+    }
+
+    public boolean isValid() {
         return true;
     }
 
-    public void errors() {
-
+    public boolean isInvalid() {
+        return true;
     }
 }

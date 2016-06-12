@@ -44,6 +44,10 @@ public class Log {
         return sEnabled;
     }
 
+    public static void appInfo() {
+
+    }
+
     public static int v(String msg) {
         return v(sTag, msg);
     }
