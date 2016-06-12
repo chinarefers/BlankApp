@@ -4,6 +4,11 @@
 
 [![Build Status](https://api.travis-ci.org/lijy91/BlankApp.svg?branch=master)](https://travis-ci.org/lijy91/BlankApp)
 
+
+## 组件
+- BlankApp
+- [Validation](https://github.com/lijy91/BlankApp/tree/master/validation)
+
 ## 如何使用
 
 1、只需将 [mvn-repo](github.com/lijy91/mvn-repo/) 地址添加到您的项目根目录 build.gradle 文件：

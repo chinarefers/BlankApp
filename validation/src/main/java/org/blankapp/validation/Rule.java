@@ -1,208 +1,180 @@
+/**
+ * Copyright (C) 2015 JianyingLi <lijy91@foxmail.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.blankapp.validation;
 
 import android.view.View;
 
+import org.blankapp.validation.validators.AcceptedValidator;
+import org.blankapp.validation.validators.BaseValidator;
+import org.blankapp.validation.validators.DateValidator;
+import org.blankapp.validation.validators.EmailValidator;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Rule {
 
-    public static int ACCEPTED;             // Accepted
-    public static int AFTER;                // After (Date)
-    public static int ALPHA;                // Alpha
-    public static int ALPHA_DASH;           // Alpha Dash
-    public static int ALPHA_NUM;            // Alpha Numeric
-    public static int BEFORE;               // Before (Date)
-    public static int BETWEEN;              // Between
-    public static int BOOLEAN;              // Boolean
-    public static int CONFIRMED;            // Confirmed
-    public static int DATE;                 // Date
-    public static int DATE_FORMAT;          // Date Format
-    public static int DIFFERENT;            // Different
-    public static int DIGITS;               // Digits
-    public static int DIGITS_BETWEEN;       // Digits Between
-    public static int EMAIL;                // E-Mail
-    public static int IMAGE;                // Image (File)
-    public static int IN;                   // In
-    public static int INTEGER;              // Integer
-    public static int IP;                   // IP Address
-    public static int JSON;                 // JSON
-    public static int MAX;                  // Max
-    public static int MIMES;                // MIME Types (File)
-    public static int MIN;                  // Min
-    public static int NOT_IN;               // Not In
-    public static int NUMERIC;              // Numeric
-    public static int REGEX;                // Regular Expression
-    public static int REQUIRED;             // Required
-    public static int REQUIRED_IF;          // Required If
-    public static int REQUIRED_UNLESS;      // Required Unless
-    public static int REQUIRED_WITH;        // Required With
-    public static int REQUIRED_WITH_ALL;    // Required With All
-    public static int REQUIRED_WITHOUT;     // Required Without
-    public static int REQUIRED_WITHOUT_ALL; // Required Without All
-    public static int SAME;                 // Same
-    public static int SIZE;                 // Size
-    public static int STRING;               // String
-    public static int TIMEZONE;             // Timezone
-    public static int URL;                  // URL
-
     public static Rule with(View view) {
-        return new Rule();
+        return new Rule(view);
+    }
+
+    private View mView;
+    private List<BaseValidator> mValidators;
+
+    public Rule() {
+        this(null);
+    }
+
+    public Rule(View view) {
+        this.mView = view;
+        this.mValidators = new ArrayList<>();
+    }
+
+    public View getView() {
+        return mView;
     }
 
     public Rule accepted() {
-        return null;
+        mValidators.add(new AcceptedValidator());
+        return this;
     }
 
     public Rule after(String date) {
-        return null;
+        mValidators.add(new DateValidator());
+        return this;
     }
 
     public Rule after(Date date) {
-        return null;
+        mValidators.add(new DateValidator());
+        return this;
     }
 
     public Rule alpha() {
-        return null;
+        return this;
     }
 
     public Rule alphaDash() {
-        return null;
+        return this;
     }
 
     public Rule alphaNum() {
-        return null;
+        return this;
     }
 
     public Rule before(String date) {
-        return null;
+        return this;
     }
 
     public Rule before(Date date) {
-        return null;
+        return this;
     }
 
     public Rule between(int min, int max) {
-        return null;
-    }
-
-    public Rule bool() {
-        return null;
+        return this;
     }
 
     public Rule confirmed() {
-        return null;
+        return this;
     }
 
     public Rule date() {
-        return null;
+        return this;
     }
 
     public Rule dateFormat(String format) {
-        return null;
-    }
-
-    public Rule different(String field) {
-        return null;
+        return this;
     }
 
     public Rule digits(long value) {
-        return null;
+        return this;
     }
 
     public Rule digitsBetween(int min, int max) {
-        return null;
+        return this;
     }
 
     public Rule email() {
-        return null;
+        mValidators.add(new EmailValidator());
+        return this;
     }
 
     public Rule image() {
-        return null;
+        return this;
     }
 
     public Rule in(String[] values) {
-        return null;
+        return this;
     }
 
     public Rule in(String[] ... values) {
-        return null;
+        return this;
     }
 
     public Rule integer() {
-        return null;
+        return this;
     }
 
     public Rule ip() {
-        return null;
+        return this;
     }
 
     public Rule json() {
-        return null;
+        return this;
     }
 
     public Rule max(long value) {
-        return null;
+        return this;
     }
 
     public Rule maxLength(long value) {
-        return null;
+        return this;
     }
 
     public Rule mimes() {
-        return null;
+        return this;
     }
 
     public Rule min(long value) {
-        return null;
+        return this;
     }
 
     public Rule minLength(long value) {
-        return null;
+        return this;
     }
 
     public Rule notIn(String[] values) {
-        return null;
+        return this;
     }
 
     public Rule notIn(String[] ... values) {
-        return null;
+        return this;
     }
 
     public Rule numeric() {
-        return null;
+        return this;
     }
 
     public Rule regex(String pattern) {
-        return null;
+        return this;
     }
 
     public Rule required() {
-        return null;
-    }
-
-    public Rule requiredIf() {
-        return null;
-    }
-
-    public Rule requiredUnless() {
-        return null;
-    }
-
-    public Rule requiredWith() {
-        return null;
-    }
-
-    public Rule requiredWithAll() {
-        return null;
-    }
-
-    public Rule requiredWithout() {
-        return null;
-    }
-
-    public Rule requiredWithoutAll() {
-        return null;
+        return this;
     }
 
     public Rule same(String field) {
@@ -210,14 +182,6 @@ public class Rule {
     }
 
     public Rule size(int value) {
-        return null;
-    }
-
-    public Rule string() {
-        return null;
-    }
-
-    public Rule timezone() {
         return null;
     }
 

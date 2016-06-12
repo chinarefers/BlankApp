@@ -28,7 +28,7 @@ public class Validator {
     private Context mContext;
     private Set<Rule> mRules;
     private ErrorHandler mErrorHandler;
-    private ValidatorListener mValidatorListener;
+    private ValidationListener mValidationListener;
 
     public Validator() {
         this(null, null);
@@ -59,12 +59,12 @@ public class Validator {
         this.mErrorHandler = errorHandler;
     }
 
-    public ValidatorListener getValidatorListener() {
-        return mValidatorListener;
+    public ValidationListener getValidatorListener() {
+        return mValidationListener;
     }
 
-    public void setValidatorListener(ValidatorListener validatorListener) {
-        this.mValidatorListener = validatorListener;
+    public void setValidatorListener(ValidationListener validationListener) {
+        this.mValidationListener = validationListener;
     }
 
     public boolean isValid() {
@@ -73,5 +73,13 @@ public class Validator {
 
     public boolean isInvalid() {
         return true;
+    }
+
+    public void validate() {
+
+    }
+
+    public void liveValidate() {
+
     }
 }

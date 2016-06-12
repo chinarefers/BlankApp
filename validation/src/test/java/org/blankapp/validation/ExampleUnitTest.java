@@ -43,5 +43,7 @@ public class ExampleUnitTest {
         if (validator.isValid()) {
             // TODO
         }
+        validator.validate();
+        validator.liveValidate();
     }
 }

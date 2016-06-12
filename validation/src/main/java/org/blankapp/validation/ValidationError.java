@@ -16,6 +16,5 @@
 
 package org.blankapp.validation;
 
-public interface ValidatorListener {
-
+public class ValidationError {
 }

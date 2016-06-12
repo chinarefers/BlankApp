@@ -1,1 +1,1 @@
-# BlankApp Validation
+# Validation

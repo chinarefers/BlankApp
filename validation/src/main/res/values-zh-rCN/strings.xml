@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">validation</string>
+    <string name="accepted">:attribute 必须接受。</string>
+    <string name="after">:attribute 必须是一个在 :date 之后的日期。</string>
+    <string name="alpha">:attribute 只能由字母组成。</string>
+    <string name="alpha_dash">:attribute 只能由字母、数字和斜杠组成。</string>
+    <string name="alpha_num">:attribute 只能由字母和数字组成。</string>
+    <string name="before">:attribute 必须是一个在 :date 之前的日期。</string>
+    <string name="url">:attribute 不是一个有效的网址。</string>
 </resources>
