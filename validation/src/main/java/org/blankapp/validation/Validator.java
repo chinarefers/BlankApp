@@ -30,6 +30,8 @@ public class Validator {
     private ErrorHandler mErrorHandler;
     private ValidationListener mValidationListener;
 
+    private boolean mLiveModel = false;
+
     public Validator() {
         this(null, null);
     }
@@ -84,6 +86,10 @@ public class Validator {
     }
 
     public void liveValidate() {
+        this.liveValidate(true);
+    }
 
+    public void liveValidate(boolean enable) {
+        mLiveModel = enable;
     }
 }

@@ -29,6 +29,6 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         validator.add(Rule.with(mCbAccepted).accepted());
 
         validator.validate();
-        validator.liveValidate();
+        validator.liveValidate(true);
     }
 }
