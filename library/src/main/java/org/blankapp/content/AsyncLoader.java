@@ -127,8 +127,8 @@ public class AsyncLoader<D> extends AsyncTaskLoader<D> {
         // Ensure the loader is stopped
         onStopLoading();
 
-        mData     = null;
-        mError    = null;
+        mData  = null;
+        mError = null;
     }
 
     public boolean hasError() {

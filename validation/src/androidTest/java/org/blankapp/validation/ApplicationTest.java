@@ -5,7 +5,10 @@ import android.test.ApplicationTestCase;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import org.blankapp.validation.validators.DateValidator;
+import org.blankapp.validation.validators.RegexValidator;
+import org.blankapp.validation.validators.RegexValidator.Patterns;
+
+import static org.blankapp.validation.validators.DateValidator.NOW;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
@@ -25,12 +28,16 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         Validator validator = new Validator();
         validator.add(Rule.with(mEtUsername).required().alphaDash().minLength(3).maxLength(32));
         validator.add(Rule.with(mEtEmail).required().email());
-        validator.add(Rule.with(mEtName).required().after(DateValidator.NOW));
+        validator.add(Rule.with(mEtName).required().after(NOW));
         validator.add(Rule.with(mEtPassword).required().minLength(6).maxLength(32));
         validator.add(Rule.with(mEtAge).numeric());
         validator.add(Rule.with(mCbAccepted).accepted());
 
         validator.validate();
         validator.liveValidate(true);
+
+        RegexValidator emailValidator = new RegexValidator(Patterns.EMAIL_ADDRESS);
+
+        emailValidator.isValid("lijy91@foxmail.com");
     }
 }

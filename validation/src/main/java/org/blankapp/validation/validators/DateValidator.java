@@ -49,7 +49,7 @@ public class DateValidator extends AbstractValidator<Date> {
         NEXT_FRIDAY,
         NEXT_SATURDAY,
     })
-    public @interface DateTimes {}
+    public @interface DateFlags {}
 
     public static final String NOW            = "now";
     public static final String TODAY          = "today";
@@ -80,18 +80,22 @@ public class DateValidator extends AbstractValidator<Date> {
     public static final String NEXT_FRIDAY    = "next_friday";
     public static final String NEXT_SATURDAY  = "next_saturday";
 
-    private String datetime;
+    private String dateFlag;
+    private Date date;
 
-    public DateValidator(Date datetime) {
-
+    public DateValidator(Date date) {
+        this.date = date;
     }
 
-    public DateValidator(@DateTimes String time) {
-        this.datetime = time;
+    public DateValidator(@DateFlags String dateFlag) {
+        this.dateFlag = dateFlag;
     }
 
     @Override
     public boolean isValid(Date date) {
+        if (dateFlag == null) {
+
+        }
         return false;
     }
 

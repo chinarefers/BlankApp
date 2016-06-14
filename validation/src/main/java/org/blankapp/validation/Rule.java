@@ -17,6 +17,10 @@
 package org.blankapp.validation;
 
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 import org.blankapp.validation.validators.AcceptedValidator;
 import org.blankapp.validation.validators.AbstractValidator;
@@ -34,24 +38,44 @@ public class Rule {
         return new Rule(view);
     }
 
-    private View view;
-    private List<AbstractValidator> validators;
+    private View mView;
+    private List<AbstractValidator> mValidators;
 
     public Rule() {
         this(null);
     }
 
     public Rule(View view) {
-        this.view = view;
-        this.validators = new ArrayList<>();
+        this.mView = view;
+        this.mValidators = new ArrayList<>();
     }
 
     public View getView() {
-        return view;
+        return mView;
+    }
+
+    public Object getViewValue() {
+        if (mView instanceof CheckBox) {
+            return ((CheckBox) mView).isChecked();
+        }
+        if (mView instanceof ToggleButton) {
+            return ((ToggleButton) mView).isChecked();
+        }
+        if (mView instanceof Switch) {
+            return ((Switch) mView).isChecked();
+        }
+        if (mView instanceof EditText) {
+            return ((EditText) mView).getText();
+        }
+        return null;
+    }
+
+    public List<AbstractValidator> getValidators() {
+        return mValidators;
     }
 
     public Rule accepted() {
-        validators.add(new AcceptedValidator());
+        mValidators.add(new AcceptedValidator());
         return this;
     }
 
@@ -60,12 +84,12 @@ public class Rule {
     }
 
     public Rule after(Date date) {
-        validators.add(new DateValidator(date));
+        mValidators.add(new DateValidator(date));
         return this;
     }
 
-    public Rule after(@DateValidator.DateTimes String datetime) {
-        validators.add(new DateValidator(datetime));
+    public Rule after(@DateValidator.DateFlags String datetime) {
+        mValidators.add(new DateValidator(datetime));
         return this;
     }
 
@@ -114,7 +138,7 @@ public class Rule {
     }
 
     public Rule email() {
-        this.validators.add(new RegexValidator(RegexValidator.Patterns.EMAIL_ADDRESS));
+        this.mValidators.add(new RegexValidator(RegexValidator.Patterns.EMAIL_ADDRESS));
         return this;
     }
 
@@ -135,7 +159,7 @@ public class Rule {
     }
 
     public Rule ip() {
-        this.validators.add(new RegexValidator(RegexValidator.Patterns.IP_ADDRESS));
+        this.mValidators.add(new RegexValidator(RegexValidator.Patterns.IP_ADDRESS));
         return this;
     }
 
@@ -176,12 +200,12 @@ public class Rule {
     }
 
     public Rule regex(String pattern) {
-        this.validators.add(new RegexValidator(pattern));
+        this.mValidators.add(new RegexValidator(pattern));
         return this;
     }
 
     public Rule regex(Pattern pattern) {
-        this.validators.add(new RegexValidator(pattern));
+        this.mValidators.add(new RegexValidator(pattern));
         return this;
     }
 
@@ -198,11 +222,12 @@ public class Rule {
     }
 
     public Rule url() {
-        this.validators.add(new RegexValidator(RegexValidator.Patterns.WEB_URL));
+        this.mValidators.add(new RegexValidator(RegexValidator.Patterns.WEB_URL));
         return this;
     }
 
-    public Rule extend(Object object) {
+    public Rule extend(AbstractValidator validator) {
+        this.mValidators.add(validator);
         return this;
     }
 }

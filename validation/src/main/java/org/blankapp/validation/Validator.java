@@ -19,18 +19,19 @@ package org.blankapp.validation;
 import android.content.Context;
 
 import org.blankapp.validation.helpers.DefaultHandler;
+import org.blankapp.validation.validators.AbstractValidator;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Validator {
 
     private Context mContext;
-    private Set<Rule> mRules;
+    private List<Rule> mRules;
     private ErrorHandler mErrorHandler;
     private ValidationListener mValidationListener;
 
-    private boolean mLiveModel = false;
+    private boolean mLiveMode = false;
 
     public Validator() {
         this(null, null);
@@ -43,7 +44,7 @@ public class Validator {
     public Validator(Context context, ErrorHandler errorHandler) {
         this.mContext = context;
         this.mErrorHandler = errorHandler;
-        this.mRules = new LinkedHashSet<>();
+        this.mRules = new ArrayList<>();
     }
 
     public void add(Rule rule) {
@@ -52,6 +53,10 @@ public class Validator {
 
     public void add(Rule rule, ValidationListener validationListener) {
         mRules.add(rule);
+    }
+
+    public List<Rule> getRules() {
+        return mRules;
     }
 
     public ErrorHandler getErrorHandler() {
@@ -73,16 +78,20 @@ public class Validator {
         this.mValidationListener = validationListener;
     }
 
-    public boolean isValid() {
+    @SuppressWarnings("unchecked")
+    public boolean validate() {
+        List<ValidationError> validationErrors = new ArrayList<>();
+        for (Rule rule : mRules) {
+            for (AbstractValidator validator : rule.getValidators()) {
+                if (!validator.isValid(rule.getViewValue())) {
+                    validationErrors.add(new ValidationError());
+                }
+            }
+        }
+        if (validationErrors.size() > 0) {
+            return false;
+        }
         return true;
-    }
-
-    public boolean isInvalid() {
-        return true;
-    }
-
-    public void validate() {
-
     }
 
     public void liveValidate() {
@@ -90,6 +99,7 @@ public class Validator {
     }
 
     public void liveValidate(boolean enable) {
-        mLiveModel = enable;
+        mLiveMode = enable;
     }
+
 }
