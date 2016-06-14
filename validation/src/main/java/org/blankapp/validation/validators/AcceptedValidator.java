@@ -16,11 +16,11 @@
 
 package org.blankapp.validation.validators;
 
-public class AcceptedValidator extends BaseValidator {
+public class AcceptedValidator extends AbstractValidator<Boolean> {
 
     @Override
-    public boolean isValid() {
-        return false;
+    public boolean isValid(Boolean value) {
+        return value;
     }
 
 }

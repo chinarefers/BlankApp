@@ -16,11 +16,30 @@
 
 package org.blankapp.validation.validators;
 
-public class RegexValidator extends BaseValidator {
+import java.util.regex.Pattern;
+
+public class RegexValidator extends AbstractValidator<String> {
+
+    private Pattern pattern;
+
+    public RegexValidator(String pattern) {
+        this.pattern = Pattern.compile(pattern);
+    }
+
+    public RegexValidator(Pattern pattern) {
+        this.pattern = pattern;
+    }
 
     @Override
-    public boolean isValid() {
-        return false;
+    public boolean isValid(String value) {
+        return pattern.matcher(value).matches();
+    }
+
+    public static class Patterns {
+        public static final Pattern EMAIL_ADDRESS = android.util.Patterns.EMAIL_ADDRESS;
+        public static final Pattern IP_ADDRESS = android.util.Patterns.IP_ADDRESS;
+        public static final Pattern WEB_URL = android.util.Patterns.WEB_URL;
+        public static final Pattern DOMAIN_NAME = android.util.Patterns.DOMAIN_NAME;
     }
 
 }

@@ -5,6 +5,8 @@ import android.test.ApplicationTestCase;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import org.blankapp.validation.validators.DateValidator;
+
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
@@ -23,7 +25,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         Validator validator = new Validator();
         validator.add(Rule.with(mEtUsername).required().alphaDash().minLength(3).maxLength(32));
         validator.add(Rule.with(mEtEmail).required().email());
-        validator.add(Rule.with(mEtName).required());
+        validator.add(Rule.with(mEtName).required().after(DateValidator.NOW));
         validator.add(Rule.with(mEtPassword).required().minLength(6).maxLength(32));
         validator.add(Rule.with(mEtAge).numeric());
         validator.add(Rule.with(mCbAccepted).accepted());

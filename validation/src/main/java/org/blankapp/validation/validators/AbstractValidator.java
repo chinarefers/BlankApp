@@ -16,11 +16,8 @@
 
 package org.blankapp.validation.validators;
 
-public class EmailValidator extends BaseValidator {
+public abstract class AbstractValidator<Value> {
 
-    @Override
-    public boolean isValid() {
-        return false;
-    }
+    public abstract boolean isValid(Value value);
 
 }

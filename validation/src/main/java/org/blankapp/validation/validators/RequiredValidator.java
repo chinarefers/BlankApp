@@ -16,11 +16,10 @@
 
 package org.blankapp.validation.validators;
 
-public class RequiredValidator extends BaseValidator {
+public class RequiredValidator extends AbstractValidator<CharSequence> {
 
     @Override
-    public boolean isValid() {
-        return false;
+    public boolean isValid(CharSequence value) {
+        return (value == null || value.length() == 0);
     }
-
 }

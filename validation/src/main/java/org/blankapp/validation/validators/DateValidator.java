@@ -16,10 +16,82 @@
 
 package org.blankapp.validation.validators;
 
-public class DateValidator extends BaseValidator {
+import android.support.annotation.StringDef;
+
+import java.util.Date;
+
+public class DateValidator extends AbstractValidator<Date> {
+
+    @StringDef({
+        NOW,
+        TODAY,
+        TOMORROW,
+        YESTERDAY,
+        THIS_SUNDAY,
+        THIS_MONDAY,
+        THIS_TUESDAY,
+        THIS_WEDNESDAY,
+        THIS_THURSDAY,
+        THIS_FRIDAY,
+        THIS_SATURDAY,
+        LAST_SUNDAY,
+        LAST_MONDAY,
+        LAST_TUESDAY,
+        LAST_WEDNESDAY,
+        LAST_THURSDAY,
+        LAST_FRIDAY,
+        LAST_SATURDAY,
+        NEXT_SUNDAY,
+        NEXT_MONDAY,
+        NEXT_TUESDAY,
+        NEXT_WEDNESDAY,
+        NEXT_THURSDAY,
+        NEXT_FRIDAY,
+        NEXT_SATURDAY,
+    })
+    public @interface DateTimes {}
+
+    public static final String NOW            = "now";
+    public static final String TODAY          = "today";
+    public static final String TOMORROW       = "tomorrow";
+    public static final String YESTERDAY      = "yesterday";
+
+    public static final String THIS_SUNDAY    = "this_sunday";
+    public static final String THIS_MONDAY    = "this_monday";
+    public static final String THIS_TUESDAY   = "this_tuesday";
+    public static final String THIS_WEDNESDAY = "this_wednesday";
+    public static final String THIS_THURSDAY  = "this_thursday";
+    public static final String THIS_FRIDAY    = "this_friday";
+    public static final String THIS_SATURDAY  = "this_saturday";
+
+    public static final String LAST_SUNDAY    = "last_sunday";
+    public static final String LAST_MONDAY    = "last_monday";
+    public static final String LAST_TUESDAY   = "last_tuesday";
+    public static final String LAST_WEDNESDAY = "last_wednesday";
+    public static final String LAST_THURSDAY  = "last_thursday";
+    public static final String LAST_FRIDAY    = "last_friday";
+    public static final String LAST_SATURDAY  = "last_saturday";
+
+    public static final String NEXT_SUNDAY    = "next_sunday";
+    public static final String NEXT_MONDAY    = "next_monday";
+    public static final String NEXT_TUESDAY   = "next_tuesday";
+    public static final String NEXT_WEDNESDAY = "next_wednesday";
+    public static final String NEXT_THURSDAY  = "next_thursday";
+    public static final String NEXT_FRIDAY    = "next_friday";
+    public static final String NEXT_SATURDAY  = "next_saturday";
+
+    private String datetime;
+
+    public DateValidator(Date datetime) {
+
+    }
+
+    public DateValidator(@DateTimes String time) {
+        this.datetime = time;
+    }
 
     @Override
-    public boolean isValid() {
+    public boolean isValid(Date date) {
         return false;
     }
 

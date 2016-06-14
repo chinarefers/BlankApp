@@ -19,13 +19,14 @@ package org.blankapp.validation;
 import android.view.View;
 
 import org.blankapp.validation.validators.AcceptedValidator;
-import org.blankapp.validation.validators.BaseValidator;
+import org.blankapp.validation.validators.AbstractValidator;
 import org.blankapp.validation.validators.DateValidator;
-import org.blankapp.validation.validators.EmailValidator;
+import org.blankapp.validation.validators.RegexValidator;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Rule {
 
@@ -33,34 +34,38 @@ public class Rule {
         return new Rule(view);
     }
 
-    private View mView;
-    private List<BaseValidator> mValidators;
+    private View view;
+    private List<AbstractValidator> validators;
 
     public Rule() {
         this(null);
     }
 
     public Rule(View view) {
-        this.mView = view;
-        this.mValidators = new ArrayList<>();
+        this.view = view;
+        this.validators = new ArrayList<>();
     }
 
     public View getView() {
-        return mView;
+        return view;
     }
 
     public Rule accepted() {
-        mValidators.add(new AcceptedValidator());
+        validators.add(new AcceptedValidator());
         return this;
     }
 
-    public Rule after(String date) {
-        mValidators.add(new DateValidator());
-        return this;
+    public Rule after(String date, String format) {
+        return after(new Date());
     }
 
     public Rule after(Date date) {
-        mValidators.add(new DateValidator());
+        validators.add(new DateValidator(date));
+        return this;
+    }
+
+    public Rule after(@DateValidator.DateTimes String datetime) {
+        validators.add(new DateValidator(datetime));
         return this;
     }
 
@@ -109,7 +114,7 @@ public class Rule {
     }
 
     public Rule email() {
-        mValidators.add(new EmailValidator());
+        this.validators.add(new RegexValidator(RegexValidator.Patterns.EMAIL_ADDRESS));
         return this;
     }
 
@@ -130,6 +135,7 @@ public class Rule {
     }
 
     public Rule ip() {
+        this.validators.add(new RegexValidator(RegexValidator.Patterns.IP_ADDRESS));
         return this;
     }
 
@@ -170,6 +176,12 @@ public class Rule {
     }
 
     public Rule regex(String pattern) {
+        this.validators.add(new RegexValidator(pattern));
+        return this;
+    }
+
+    public Rule regex(Pattern pattern) {
+        this.validators.add(new RegexValidator(pattern));
         return this;
     }
 
@@ -186,6 +198,7 @@ public class Rule {
     }
 
     public Rule url() {
+        this.validators.add(new RegexValidator(RegexValidator.Patterns.WEB_URL));
         return this;
     }
 

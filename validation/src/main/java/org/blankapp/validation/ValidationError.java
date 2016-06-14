@@ -16,5 +16,6 @@
 
 package org.blankapp.validation;
 
-public class ValidationError {
+public class ValidationError extends Throwable {
+
 }
