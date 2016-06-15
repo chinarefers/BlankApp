@@ -4,7 +4,7 @@
 
 
 ## 组件
-- [Validation](https://github.com/lijy91/BlankApp/tree/master/validation)
+- [Validation](https://github.com/lijy91/blankapp-validation)
 
 ## 如何使用
 
@@ -20,7 +20,6 @@ repositories {
 ```
 dependencies {
     compile 'org.blankapp:blankapp:0.0.11-alpha@aar'
-    compile 'org.blankapp:validation:0.0.11-alpha@aar'
 }
 ```
 
