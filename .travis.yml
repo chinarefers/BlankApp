@@ -18,4 +18,3 @@ before_install:
 
 script:
     - ./gradlew library:build
-    - ./gradlew validation:build

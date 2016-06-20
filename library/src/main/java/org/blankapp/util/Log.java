@@ -40,10 +40,6 @@ public class Log {
         sEnabled = enabled;
     }
 
-    public static boolean isLoggingEnabled() {
-        return sEnabled;
-    }
-
     public static void appInfo() {
 
     }

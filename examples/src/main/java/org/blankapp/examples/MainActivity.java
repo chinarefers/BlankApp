@@ -1,17 +1,13 @@
 package org.blankapp.examples;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.CursorLoader;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatDialog;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
+import org.blankapp.BlankApp;
+import org.blankapp.Configuration;
 import org.blankapp.annotation.ViewById;
 import org.blankapp.app.LoaderActivity;
+import org.blankapp.util.Log;
 
 public class MainActivity extends LoaderActivity<Object> {
     private final String TAG = MainActivity.class.getSimpleName();
@@ -25,6 +21,9 @@ public class MainActivity extends LoaderActivity<Object> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BlankApp.initialize(this, true);
+
         this.initLoader();
 
 //        runOnUiThread(() -> Log.i("TAG", "test"));
