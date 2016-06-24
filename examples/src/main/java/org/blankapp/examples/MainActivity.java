@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import org.blankapp.BlankApp;
-import org.blankapp.Configuration;
 import org.blankapp.annotation.ViewById;
 import org.blankapp.app.LoaderActivity;
 import org.blankapp.util.Log;

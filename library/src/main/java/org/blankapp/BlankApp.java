@@ -17,7 +17,6 @@
 package org.blankapp;
 
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
 
 import org.blankapp.util.Config;
 import org.blankapp.util.Log;
